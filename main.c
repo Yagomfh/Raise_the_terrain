@@ -3,8 +3,6 @@
 int main(int argc, char *argv[])
 {
 	FILE *file_pointer;
-	char *line = NULL;
-	size_t len = 0;
 
 	if (argc != 2)
 	{
@@ -12,9 +10,8 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 	file_pointer = fopen(argv[1], "r");
-/*	set_coord(file_pointer);*/
-	getline(&line, &len, file_pointer);
-	printf("%s\n", line);
+	setCo(file_pointer);
+
 	SDL_Instance instance;
 
 	if (init_instance(&instance) != 0)
@@ -33,4 +30,13 @@ int main(int argc, char *argv[])
 	SDL_DestroyWindow(instance.window);
 	SDL_Quit();
 	return (0);
+}
+
+void setCo(FILE *file_p)
+{
+	char *line = NULL;
+	size_t len = 0;
+
+	getline(&line, &len, file_p);
+	printf("%s\n", line);
 }
