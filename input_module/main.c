@@ -10,9 +10,10 @@ int main(int argc, char *argv[])
 		printf("Usage: ./terrain [file]\n");
 		return (0);
 	}
-	init_vars(&vars);
-	file_pointer = fopen(argv[1], "r");
-	init_coords(&vars, file_pointer); 
+	init_vars(&vars, argv);
+	init_coords(&vars); 
+	fclose(file_pointer);
+	free_nodes(&vars);
 	return (0);
 }
 

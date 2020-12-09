@@ -13,7 +13,8 @@
 
 #define WINDOW_W 1260
 #define WINDOW_H 720
-#define PADING 50
+#define PADDING 20
+#define INCL 0.7
 
 typedef struct list_s
 {
@@ -22,11 +23,14 @@ typedef struct list_s
 	int z;
 	int row;
 	int col;
+	int wx;
+	int wy;
 	struct list_s *next;
 } list_t;
 
 typedef struct variables
 {
+	char *filename;
 	list_t *head;
 } vars_t;
 
@@ -34,7 +38,9 @@ typedef struct variables
 int main(int argc, char *argv[]);
 
 /* INIT */
-void init_vars(vars_t *vars);
-void init_coords(vars_t *vars, FILE *fp);
+void init_vars(vars_t *vars, char **argv);
+void init_coords(vars_t *vars);
+list_t *init_node_end(list_t **head, int x, int y, int z, int row, int col);
+void free_nodes(vars_t *vars);
 
 #endif
