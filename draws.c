@@ -2,7 +2,7 @@
 
 list_t *getNCol(vars_t *vars, list_t *head)
 {
-	int n_col = vars->p_num;
+	int n_col = vars->t_cols;
 	int i = 0;
 
 	while (i < n_col)

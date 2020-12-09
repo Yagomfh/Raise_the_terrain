@@ -2,7 +2,8 @@
 
 void init_vars(vars_t *vars, char **argv)
 {
-	vars->p_num = 0;
+	vars->t_rows = 0;
+	vars->t_cols = 0;
 	vars->filename = argv[1];
 	vars->head = NULL;
 }
@@ -69,15 +70,16 @@ void init_coords(vars_t *vars)
 {
 	char *line = NULL, *token, *delim = " \n";
 	size_t line_count = 0;
-	int max_p = 0, row = 0, col, max_dbp, x, y;
+	int row = 0, col, max_dbp, x, y;
+	int max_r = 0, max_c = 0, max_p; 
 	FILE *tmp_fp, *fp;
 
-	tmp_fp = fopen(vars->filename, "r");
-	while (getline(&line, &line_count, tmp_fp) != -1)
-		max_p++;
-	free(line), line_count = 0, line = NULL;
-	fclose(tmp_fp);
-	vars->p_num = max_p;
+	max_r = get_total_row(vars);
+	max_c = get_total_col(vars);
+	printf("max_c = %d max_r = %d\n", max_c, max_r);
+	max_p = max_r;
+	if (max_r < max_c)
+		max_p = max_c;
 
 	fp = fopen(vars->filename, "r");
 	max_dbp = (WINDOW_H - PADDING * 2) / (max_p - 1);
@@ -95,7 +97,9 @@ void init_coords(vars_t *vars)
 		}
 		row++, y+= max_dbp;
 	}
+	printf("total: cols = %d, rows = %d\n", col, row);
+	vars->t_cols = col, vars->t_rows = row;
 	free(line);
 	fclose(fp);
-	print_nodes(vars);
+	/*print_nodes(vars);*/
 }

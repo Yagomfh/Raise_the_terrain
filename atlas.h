@@ -38,7 +38,8 @@ typedef struct list_s
 typedef struct variables
 {
 	char *filename;
-	int p_num;
+	int t_cols;
+	int t_rows;
 	list_t *head;
 } vars_t;
 
@@ -60,4 +61,7 @@ int poll_events();
 /* DRAWS */
 void draw_stuff(SDL_Instance instance, vars_t *vars);
 
+/* ROW_COL */
+int get_total_col(vars_t *vars);
+int get_total_row(vars_t *vars);
 #endif
