@@ -93,6 +93,7 @@ void init_coords(vars_t *vars)
 		}
 		row++, y+= max_dbp;
 	}
+	free(line);
 	fclose(fp);
 	print_nodes(vars);
 }

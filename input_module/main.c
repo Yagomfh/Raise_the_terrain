@@ -12,7 +12,6 @@ int main(int argc, char *argv[])
 	}
 	init_vars(&vars, argv);
 	init_coords(&vars); 
-	fclose(file_pointer);
 	free_nodes(&vars);
 	return (0);
 }
