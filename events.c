@@ -1,6 +1,6 @@
 #include "atlas.h"
 
-int poll_events()
+int poll_events(vars_t *vars)
 {
 	SDL_Event event;
 	SDL_KeyboardEvent key;
@@ -13,9 +13,18 @@ int poll_events()
 				return (1);
 			case SDL_KEYDOWN:
 				key = event.key;
-				/* If ESC is pressed */
-				if (key.keysym.scancode == 0x29)
-					return (1);
+				switch (key.keysym.sym)
+				{
+					case SDLK_ESCAPE:
+						return (1);
+					case SDLK_LEFT:
+						puts ("Left key pressed");
+						break;
+					case SDLK_RIGHT:
+						puts("Right key pressed");
+					default:
+						break;
+				}
 				break;
 		}
 	}
