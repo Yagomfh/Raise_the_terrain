@@ -30,8 +30,6 @@ void draw_stuff(SDL_Instance instance, vars_t *vars)
 		nCol = getNCol(vars, h);
 		if (nCol != NULL)
 			SDL_RenderDrawLine(instance.renderer, h->wx, h->wy, nCol->wx, nCol->wy);
-		SDL_RenderDrawPoint(instance.renderer, h->wx, h->wy);
 		h = h->next;
 	}
-	SDL_RenderDrawPoint(instance.renderer, h->wx, h->wy);
 }

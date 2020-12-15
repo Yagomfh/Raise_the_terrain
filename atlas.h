@@ -11,10 +11,11 @@
 #include <sys/time.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <math.h>
 
 #define WINDOW_W 1260
 #define WINDOW_H 720
-#define PADDING 0
+#define PADDING 10
 #define INCL 0.7
 
 typedef struct SDL_Instance
@@ -51,6 +52,7 @@ void init_vars(vars_t *vars, char **argv);
 void init_coords(vars_t *vars);
 list_t *init_node_end(list_t **head, int x, int y, int z, int row, int col);
 void free_nodes(vars_t *vars);
+void center_grid(vars_t *vars);
 
 /* INIT_INSTANCE */
 int init_instance(SDL_Instance *instance);
@@ -64,4 +66,8 @@ void draw_stuff(SDL_Instance instance, vars_t *vars);
 /* ROW_COL */
 int get_total_col(vars_t *vars);
 int get_total_row(vars_t *vars);
+
+/* ROTATE */
+void rotate(int angle, vars_t *vars);
+
 #endif

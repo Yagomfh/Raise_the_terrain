@@ -21,8 +21,8 @@ list_t *init_node_end(list_t **head, int x, int y, int z, int row, int col)
 	new->z = z;
 	new->row = row;
 	new->col = col;
-	new->wx = (INCL * x - INCL * y) + (WINDOW_W / 2);
-	new->wy = ((1 - INCL) * x + (1 - INCL) * y - z) + (WINDOW_H / 4);
+	new->wx = (INCL * x - INCL * y);
+	new->wy = ((1 - INCL) * x + (1 - INCL) * y - z);
 	new->next = NULL;
 
 	if (*head == NULL)
@@ -52,18 +52,36 @@ void free_nodes(vars_t *vars)
 	vars->head = NULL;
 }
 
-void print_nodes(vars_t *vars)
+void center_grid(vars_t *vars)
 {
 	list_t *head = vars->head;
-	int i = 1;
+	int min_x = 0, min_y = 0, max_x = 0, max_y = 0;
+	int padx, pady;
 
-	while (head->next)
+	while (head)
 	{
-		printf("NODE %d\n", i);
-		printf("row = %3d | col = %3d\nwx = %4d | wy = %4d\n\n", head->row, head->col, head->wx, head->wy);
+		if (head->wx < min_x)
+			min_x = head->wx;
+		if (head->wy < min_y)
+			min_y = head->wy;
+		if (head->wx > max_x)
+			max_x = head->wx;
+		if (head->wy > max_y)
+			max_y = head->wy;
 		head = head->next;
-		i++;
 	}
+	padx = (min_x - max_x + WINDOW_W) / 2;
+	pady = (min_y - max_y + WINDOW_H) / 2;
+	printf("padx = %d || pady = %d\n", padx, pady);
+	head = vars->head;
+	while (head)
+	{
+		head->wx += -(min_x) + padx;
+		head->wy += -(min_y) + pady;
+		head = head->next;
+	}
+	printf("max_x = %d || max_y = %d\n", max_x, max_y);
+	printf("min_x = %d || min_y = %d\n", min_x, min_y);
 }
 
 void init_coords(vars_t *vars)
@@ -76,7 +94,7 @@ void init_coords(vars_t *vars)
 
 	max_r = get_total_row(vars);
 	max_c = get_total_col(vars);
-	printf("max_c = %d max_r = %d\n", max_c, max_r);
+	vars->t_cols = max_c, vars->t_rows = max_r;
 	max_p = max_r;
 	if (max_r < max_c)
 		max_p = max_c;
@@ -97,9 +115,6 @@ void init_coords(vars_t *vars)
 		}
 		row++, y+= max_dbp;
 	}
-	printf("total: cols = %d, rows = %d\n", col, row);
-	vars->t_cols = col, vars->t_rows = row;
 	free(line);
 	fclose(fp);
-	/*print_nodes(vars);*/
 }

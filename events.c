@@ -18,6 +18,7 @@ int poll_events(vars_t *vars)
 					case SDLK_ESCAPE:
 						return (1);
 					case SDLK_LEFT:
+						rotate(5, vars);
 						puts ("Left key pressed");
 						break;
 					case SDLK_RIGHT:

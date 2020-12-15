@@ -16,12 +16,13 @@ int main(int argc, char *argv[])
 		return(1);
 	init_vars(&vars, argv);
 	init_coords(&vars);
+	center_grid(&vars);
 
 	while ("C is awesome")
 	{
 		SDL_SetRenderDrawColor(instance.renderer, 0, 0, 0, 0);
 		SDL_RenderClear(instance.renderer);
-		if (poll_events() == 1)
+		if (poll_events(&vars) == 1)
 			break;
 		draw_stuff(instance, &vars);
 		SDL_RenderPresent(instance.renderer);
