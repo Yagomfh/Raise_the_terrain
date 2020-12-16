@@ -5,6 +5,7 @@ void init_vars(vars_t *vars, char **argv)
 	vars->t_rows = 0;
 	vars->t_cols = 0;
 	vars->filename = argv[1];
+	vars->rotation = 0;
 	vars->head = NULL;
 }
 
@@ -21,6 +22,8 @@ list_t *init_node_end(list_t **head, int x, int y, int z, int row, int col)
 	new->z = z;
 	new->row = row;
 	new->col = col;
+	new->rx = 0;
+	new->ry = 0;
 	new->wx = (INCL * x - INCL * y);
 	new->wy = ((1 - INCL) * x + (1 - INCL) * y - z);
 	new->next = NULL;

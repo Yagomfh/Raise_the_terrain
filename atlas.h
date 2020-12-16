@@ -31,6 +31,8 @@ typedef struct list_s
 	int z;
 	int row;
 	int col;
+	int rx;
+	int ry;
 	int wx;
 	int wy;
 	struct list_s *next;
@@ -41,6 +43,7 @@ typedef struct variables
 	char *filename;
 	int t_cols;
 	int t_rows;
+	int rotation;
 	list_t *head;
 } vars_t;
 
@@ -67,7 +70,7 @@ void draw_stuff(SDL_Instance instance, vars_t *vars);
 int get_total_col(vars_t *vars);
 int get_total_row(vars_t *vars);
 
-/* ROTATE */
-void rotate(int angle, vars_t *vars);
+/* MOVEMENTS */
+void move_grid(vars_t *vars);
 
 #endif

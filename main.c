@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
 		SDL_RenderClear(instance.renderer);
 		if (poll_events(&vars) == 1)
 			break;
+		move_grid(&vars);
 		draw_stuff(instance, &vars);
 		SDL_RenderPresent(instance.renderer);
 	}
