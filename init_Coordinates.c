@@ -55,33 +55,14 @@ void free_nodes(vars_t *vars)
 void center_grid(vars_t *vars)
 {
 	list_t *head = vars->head;
-	int min_x = 0, min_y = 0, max_x = 0, max_y = 0;
-	int padx, pady;
+	int min_x = 0, min_y = 0;
 
 	while (head)
 	{
-		if (head->wx < min_x)
-			min_x = head->wx;
-		if (head->wy < min_y)
-			min_y = head->wy;
-		if (head->wx > max_x)
-			max_x = head->wx;
-		if (head->wy > max_y)
-			max_y = head->wy;
+		head->wx += -(min_x) + WINDOW_W / 2;
+		head->wy += -(min_y) + WINDOW_H / 2;
 		head = head->next;
 	}
-	padx = (min_x - max_x + WINDOW_W) / 2;
-	pady = (min_y - max_y + WINDOW_H) / 2;
-	printf("padx = %d || pady = %d\n", padx, pady);
-	head = vars->head;
-	while (head)
-	{
-		head->wx += -(min_x) + padx;
-		head->wy += -(min_y) + pady;
-		head = head->next;
-	}
-	printf("max_x = %d || max_y = %d\n", max_x, max_y);
-	printf("min_x = %d || min_y = %d\n", min_x, min_y);
 }
 
 void init_coords(vars_t *vars)
@@ -101,10 +82,10 @@ void init_coords(vars_t *vars)
 
 	fp = fopen(vars->filename, "r");
 	max_dbp = (WINDOW_H - PADDING * 2) / (max_p - 1);
-	y = 0;
+	y = -max_dbp * (max_r - 1) / 2;
 	while(getline(&line, &line_count, fp) != -1)
 	{
-		x = 0;
+		x = -max_dbp * (max_c - 1) / 2;
 		col = 0;
 		token = strtok(line, delim);
 		while (token)
