@@ -2,79 +2,66 @@
 
 ## What is it?
 
-This is my first project using SDL2 to create a window and draw stuff in it. The objective is simple: create a C program that takes a file as an argument and draws a 3D grid with the 
+This is my first project using SDL2 to create a window and draw stuff in it. The objective is simple: create a C program that takes a file ([see example](https://github.com/Yagomfh/Raise_the_terrain/blob/main/input_file_example)) as an argument and draws a 3D grid with the altitudes written in the file.
 
 ## How to use it?
 
 **1) Download it:**
 
 ```
-$ git clone https://github.com/huy75/simple_shell.git
+$ git clone https://github.com/Yagomfh/Raise_the_terrain
 ```
 
-**2) Compile it:**
+**2) Modify the input_file_example or create your OWN_FILE:**
+
+Go to main project's directory & open it:
 
 ```
-gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+$ cd Raise_the_terrain/
+$ vi input_file_example 
 ```
+
+Modify it (input_file_example already has a working input):
+
+```
+120 60 40 60 20 -20 -80 -120
+40 20 30 30 -10 -40 -90 -110
+20 30 10 06 -6 -20 -26 -90
+00 -6 10 10 -6 -20 -20 -40
+-20 -20 -18 -14 -40 -20 -20 -30
+-10 -10 -10 -10 -8 -20 -20 -30
+20 10 10 10 10 04 10 -10
+30 24 24 22 20 18 14 16
+```
+
+Each number corresponds to the altitude 'z' at the point (x, y)
 
 **3) Run it:**
 
-If you want to run it in your current environment:
+In order to run it make sure you have SDL2 installed in your computer. 
+[SDL2 Installation](https://wiki.libsdl.org/Installation)
 
 ```
-$ ./hsh
-```
-
-If you want to run it with the `sh` environment:
-
-```
-$ sh
-$$ ./hsh
+$ ./terrain input_file_example
 ```
 
 **4) Quit it:**
 
-Run `exit` or `ctrl + D`
+Press `ESC`
 
-## Commands featured in this simple_shell
+## Main feature:
 
-You can check the list of commands and builtins of this shell by running `$ man ./man_1_simple_shell`.
+**1) Rotate clockwise**
 
-To get the details of each available commands, run `ls /bin/` and to then `man COMMAND_NAME` to get more info about the command behaviour.
+Press `RIGHT-ARROW`
 
-To get the details of each builtin command, run `help BUILTIN_CMD`.
+**2) Rotate counter clockwise**
 
-## Examples
+Press `LEAFT-ARROW`
 
-**List directory contents:**
+## Visual example:
 
-```
-$ ls
-checkexit.c  _getline.c  hsh      path.c     _realloc.c  shell.h
-fork.c       hello       parse.c  README.md  shell.c     strings.c
-```
-
-**Create a new directory:**
-
-```
-$ mkdir strtok
-$ ls
-checkexit.c  _getline.c  hsh      path.c     _realloc.c  shell.h    strtok
-fork.c       hello       parse.c  README.md  shell.c     strings.c
-```
-
-## Learning objectives and limitations
-
-**1) Objectives**
-
-The goal is to understand how does a shell work, what is a pid and a ppid, how to manipulate the environment of the current process, what is the difference between a function and a system call, how to create processes, what are the three prototypes of `main`, how does the shell use the `PATH` to find the programs, how to execute another program with the `execve` system call, how to suspend the execution of a process until one of its children terminates, what is `EOF` / “end-of-file”?
-
-**2) Limitations**
-
-Functions allowed: `access`, `chdir`, `close`, `closedir`, `execve`, `exit`, `_exit`, `fflush`, `fork`, `free`, `getcwd`, `getline`, `isatty`, `kill`, `malloc`, `open`, `opendir`, `perror`, `read`, `readdir`, `signal`, `stat`, `lstat`, `fstat`, `strtok`, `wait`, `waitpid`, `wait3`, `wait4`, and `write`.
-
-`man`any of these to know more about them.
+![](https://drive.google.com/uc?id=10wa87VrX9TqrAkC7UJdnn1VHWIUV6PmN)
 
 ## Author
 
