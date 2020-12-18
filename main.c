@@ -1,5 +1,12 @@
 #include "atlas.h"
 
+/**
+  * main - main function
+  * @argc: an argument
+  * @argv: list of arguments
+  * Return: always 0
+  */
+
 int main(int argc, char *argv[])
 {
 	FILE *file_pointer;

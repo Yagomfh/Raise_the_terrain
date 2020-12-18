@@ -1,5 +1,12 @@
 #include "atlas.h"
 
+/**
+  * init_vars - initialise global variables
+  * @vars: global variables
+  * @argv: arguments
+  * Return: void
+  */
+
 void init_vars(vars_t *vars, char **argv)
 {
 	vars->t_rows = 0;
@@ -8,6 +15,17 @@ void init_vars(vars_t *vars, char **argv)
 	vars->rotation = 0;
 	vars->head = NULL;
 }
+
+/**
+  * init_node_end - initiates node at end of list
+  * @head: pointer to head node
+  * @x: coordinate x
+  * @y: coordinate y
+  * @z: coordinate z
+  * @row: row nb in 2d grid
+  * @col: col nb in 2d grid
+  * Return: pointer to new node or NULL if failed
+  */
 
 list_t *init_node_end(list_t **head, int x, int y, int z, int row, int col)
 {
@@ -39,6 +57,12 @@ list_t *init_node_end(list_t **head, int x, int y, int z, int row, int col)
 	return (new);
 }
 
+/**
+  * free_nodes - frees linked list
+  * @vars: global variables
+  * Return: void
+  */
+
 void free_nodes(vars_t *vars)
 {
 	list_t *current = vars->head;
@@ -55,18 +79,11 @@ void free_nodes(vars_t *vars)
 	vars->head = NULL;
 }
 
-void center_grid(vars_t *vars)
-{
-	list_t *head = vars->head;
-	int min_x = 0, min_y = 0;
-
-	while (head)
-	{
-		head->wx += -(min_x) + WINDOW_W / 2;
-		head->wy += -(min_y) + WINDOW_H / 2;
-		head = head->next;
-	}
-}
+/**
+  * init_coords - initialise a 2D grid
+  * @vars: global variables
+  * Return: void
+  */
 
 void init_coords(vars_t *vars)
 {

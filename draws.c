@@ -1,5 +1,12 @@
 #include "atlas.h"
 
+/**
+  * getNCol - gets y equivalent in col + 1
+  * @vars: global vars
+  * @head: pointer to head node
+  * Return: pointer next col node or NULL if not found
+  */
+
 list_t *getNCol(vars_t *vars, list_t *head)
 {
 	int n_col = vars->t_cols;
@@ -14,6 +21,13 @@ list_t *getNCol(vars_t *vars, list_t *head)
 	}
 	return (head);
 }
+
+/**
+  * draw_stuff - draws a 3D grid
+  * @instance: pointer to instance
+  * @vars: global vars
+  * Return: void
+  */
 
 void draw_stuff(SDL_Instance instance, vars_t *vars)
 {

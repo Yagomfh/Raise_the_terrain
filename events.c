@@ -1,5 +1,11 @@
 #include "atlas.h"
 
+/**
+  * poll_events - polls events from window
+  * @vars: global variables
+  * Return: always 0 or 1 of ESC
+  */
+
 int poll_events(vars_t *vars)
 {
 	SDL_Event event;

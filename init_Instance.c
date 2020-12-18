@@ -1,5 +1,12 @@
 #include "atlas.h"
 
+/**
+  * init_instance - init SDL, create window & renderer instance
+  * linked to the window
+  * @instance: pointer to instance
+  * Return: 0 if OK or 1 if fail
+  */
+
 int init_instance(SDL_Instance *instance)
 {
 	/* Initiate SDL */

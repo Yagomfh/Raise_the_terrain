@@ -18,11 +18,31 @@
 #define PADDING 10
 #define INCL 0.7
 
+/**
+  * struct SDL_Instance - struct for window and renderer
+  * @window: pointer to window
+  * @renderer: pointer to renderer
+  */
+
 typedef struct SDL_Instance
 {
 	SDL_Window *window;
 	SDL_Renderer *renderer;
 } SDL_Instance;
+
+/**
+  * struct list_s - linked list with all grid points
+  * @x: coordinate x
+  * @y: coordinate y
+  * @z: coordinate z
+  * @row: row nb in grid
+  * @col: col nb in grid
+  * @rx: INCL * x - INCL * y
+  * @ry: (1 - INCL) * x + (1 - INCL) * y - z;
+  * @wx: x * cos(vars_t->rotation) - y * sin(vars_t->rotation)
+  * @wy: x * sin(vars_t->rotation) + y * cos(vars_t->rotation)
+  * @next: pointer to next node
+  */
 
 typedef struct list_s
 {
@@ -37,6 +57,15 @@ typedef struct list_s
 	int wy;
 	struct list_s *next;
 } list_t;
+
+/**
+  * struct variables - global variables
+  * @filename: pointer to file w/ altitudes
+  * @t_cols: nb of total cols in filename
+  * @t_rows: nb of total rows in filename
+  * @rotation: Angle * M_PI / 180
+  * @head: pointer to head node of list_t
+  */
 
 typedef struct variables
 {

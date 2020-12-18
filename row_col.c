@@ -1,5 +1,11 @@
 #include "atlas.h"
 
+/**
+  * get_total_col - get nb of total colomns
+  * @vars: pointer to global variables
+  * Return: total colomns
+  */
+
 int get_total_col(vars_t *vars)
 {
 	FILE *fp;
@@ -20,6 +26,12 @@ int get_total_col(vars_t *vars)
 	fclose(fp);
 	return (total);
 }
+
+/**
+  * get_total_row - get nb of total rows
+  * @vars: global variables
+  * Returns: total rows
+  */
 
 int get_total_row(vars_t *vars)
 {
