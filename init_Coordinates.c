@@ -14,6 +14,8 @@ void init_vars(vars_t *vars, char **argv)
 	vars->filename = argv[1];
 	vars->rotation = 0;
 	vars->alt_mod = 1;
+	vars->mov_lr = 0;
+	vars->mov_ud = 0;
 	vars->head = NULL;
 }
 

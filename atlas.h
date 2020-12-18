@@ -64,6 +64,9 @@ typedef struct list_s
   * @t_cols: nb of total cols in filename
   * @t_rows: nb of total rows in filename
   * @rotation: Angle * M_PI / 180
+  * @alt_mod: altitude modifier
+  * @mov_lr: left / right movements
+  * @mov_ud: up / down movements
   * @head: pointer to head node of list_t
   */
 
@@ -74,6 +77,8 @@ typedef struct variables
 	int t_rows;
 	int rotation;
 	float alt_mod;
+	int mov_lr;
+	int mov_ud;
 	list_t *head;
 } vars_t;
 

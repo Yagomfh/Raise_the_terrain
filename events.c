@@ -34,6 +34,7 @@ int poll_events(vars_t *vars)
 						break;
 					case SDLK_DOWN:
 						vars->alt_mod += 0.1;
+						break;
 					default:
 						break;
 				}
