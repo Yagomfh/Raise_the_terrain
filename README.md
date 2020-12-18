@@ -14,14 +14,14 @@ $ git clone https://github.com/Yagomfh/Raise_the_terrain
 
 **2) Modify the input_file_example or create your OWN_FILE:**
 
-Go to main project's directory & open it:
+Go to input_file if you want to use pre-built models:
 
 ```
-$ cd Raise_the_terrain/
-$ vi input_file_example 
+$ cd Raise_the_terrain/input_files
+$ cp FILE_NAME ../
 ```
 
-Modify it (input_file_example already has a working input):
+Create your own with the following format:
 
 ```
 120 60 40 60 20 -20 -80 -120
@@ -36,16 +36,22 @@ Modify it (input_file_example already has a working input):
 
 Each number corresponds to the altitude 'z' at the point (x, y)
 
-**3) Run it:**
+**3) Compile it**
+
+```
+$ gcc `sdl2-config --cflags` `sdl2-config --libs` -Wall -Werror -Wextra -pedantic *.c -o terrain
+```
+
+**4) Run it:**
 
 In order to run it make sure you have SDL2 installed in your computer. 
 [SDL2 Installation](https://wiki.libsdl.org/Installation)
 
 ```
-$ ./terrain input_file_example
+$ ./terrain INPUT_FILE_NAME
 ```
 
-**4) Quit it:**
+**5) Quit it:**
 
 Press `ESC`
 
