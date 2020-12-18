@@ -51,13 +51,15 @@ Press `ESC`
 
 ## Main feature:
 
-**1) Rotate clockwise**
+**1) Rotate**
 
-Press `RIGHT-ARROW`
+Clockwise: `RIGHT-ARROW`
+Counter-closckwise: `LEAFT-ARROW`
 
-**2) Rotate counter clockwise**
+**2) Altitud modifier**
 
-Press `LEAFT-ARROW`
+Higher: `UP-ARROW`
+Lower: `DOWN-ARROW`
 
 ## Visual example:
 

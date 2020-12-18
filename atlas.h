@@ -73,6 +73,7 @@ typedef struct variables
 	int t_cols;
 	int t_rows;
 	int rotation;
+	float alt_mod;
 	list_t *head;
 } vars_t;
 

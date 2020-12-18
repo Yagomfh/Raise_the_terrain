@@ -16,7 +16,7 @@ void move_grid(vars_t *vars)
 		node->rx = node->x * cos(a) - node->y * sin(a);
 		node->ry = node->x * sin(a) + node->y * cos(a);
 		node->wx = INCL * node->rx - INCL * node->ry;
-		node->wy = (1 - INCL) * node->rx + (1 - INCL) * node->ry - node->z;
+		node->wy = (1 - INCL) * node->rx + (1 - INCL) * node->ry - (node->z / vars->alt_mod);
 		node = node->next;
 	}
 	center_grid(vars);

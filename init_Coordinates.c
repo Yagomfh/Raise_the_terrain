@@ -13,6 +13,7 @@ void init_vars(vars_t *vars, char **argv)
 	vars->t_cols = 0;
 	vars->filename = argv[1];
 	vars->rotation = 0;
+	vars->alt_mod = 1;
 	vars->head = NULL;
 }
 
@@ -91,7 +92,7 @@ void init_coords(vars_t *vars)
 	size_t line_count = 0;
 	int row = 0, col, max_dbp, x, y;
 	int max_r = 0, max_c = 0, max_p; 
-	FILE *tmp_fp, *fp;
+	FILE *fp;
 
 	max_r = get_total_row(vars);
 	max_c = get_total_col(vars);

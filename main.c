@@ -9,7 +9,6 @@
 
 int main(int argc, char *argv[])
 {
-	FILE *file_pointer;
 	vars_t vars;
 	SDL_Instance instance;
 

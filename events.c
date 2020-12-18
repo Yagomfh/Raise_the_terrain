@@ -29,6 +29,11 @@ int poll_events(vars_t *vars)
 					case SDLK_RIGHT:
 						vars->rotation -= 5;
 						break;
+					case SDLK_UP:
+						vars->alt_mod -= 0.1;
+						break;
+					case SDLK_DOWN:
+						vars->alt_mod += 0.1;
 					default:
 						break;
 				}

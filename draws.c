@@ -31,7 +31,6 @@ list_t *getNCol(vars_t *vars, list_t *head)
 
 void draw_stuff(SDL_Instance instance, vars_t *vars)
 {
-	int x, y;
 	list_t *h = vars->head;
 	list_t *nCol;
 
