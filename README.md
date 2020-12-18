@@ -2,7 +2,7 @@
 
 ## What is it?
 
-This is my first project using SDL2 to create a window and draw stuff in it. The objective is simple: create a C program that takes a file ([see example](https://github.com/Yagomfh/Raise_the_terrain/blob/main/input_file_example)) as an argument and draws a 3D grid with the altitudes written in the file.
+This is my first project using SDL2 to create a window and draw stuff in it. The objective is simple: create a C program that takes a file ([see examples here](https://github.com/Yagomfh/Raise_the_terrain/tree/main/input_examples)) as an argument and draws a 3D grid with the altitudes written in the file.
 
 ## How to use it?
 
