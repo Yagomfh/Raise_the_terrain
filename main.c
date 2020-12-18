@@ -18,6 +18,11 @@ int main(int argc, char *argv[])
 		printf("Usage: ./terrain [file]\n");
 		return (0);
 	}
+	if (fopen(argv[1], "r") == NULL)
+	{
+		printf("Your file doesn't exist\n");
+		return (0);
+	}
 
 	if (init_instance(&instance) != 0)
 		return(1);
