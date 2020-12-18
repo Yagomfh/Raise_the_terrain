@@ -84,7 +84,6 @@ void init_vars(vars_t *vars, char **argv);
 void init_coords(vars_t *vars);
 list_t *init_node_end(list_t **head, int x, int y, int z, int row, int col);
 void free_nodes(vars_t *vars);
-void center_grid(vars_t *vars);
 
 /* INIT_INSTANCE */
 int init_instance(SDL_Instance *instance);
@@ -101,5 +100,6 @@ int get_total_row(vars_t *vars);
 
 /* MOVEMENTS */
 void move_grid(vars_t *vars);
+void center_grid(vars_t *vars);
 
 #endif
